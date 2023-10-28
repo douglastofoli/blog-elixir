@@ -5,7 +5,7 @@ defmodule Blog.Users do
   def get_by_id(id) do
     case Repo.get(User, id) do
       nil -> {:error, :user_not_found}
-      user -> {:ok, user}
+      user -> {:ok, Repo.preload(user, :posts)}
     end
   end
 
