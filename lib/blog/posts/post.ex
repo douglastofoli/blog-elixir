@@ -22,7 +22,6 @@ defmodule Blog.Posts.Post do
     |> validate_required(@required_fields)
     |> validate_length(:content, min: 1, max: 280)
     |> foreign_key_constraint(:user_id)
-    |> unique_constraint(:user_id)
   end
 
   def change_likes(post, likes) do
